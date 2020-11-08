@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/fontsstyle.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+		<div class="menu_bar">
+      <a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+      
+		</div>
+
+  <nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    
+      <a class="py-2 d-none d-md-inline-block" href="main-page.html"><span class="icon-home3"></span>Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html"><span class="icon-price-tags"></span>Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html"><span class="icon-truck"></span>Productos</a>
+     <a  class="py-2 d-none d-md-inline-block" href="sell.html"><span class="icon-credit-card"></span>Vender</a>
+     <div class="btn-group">
+        <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: rgb(253, 34, 100); color: white;"
+                type="button" data-toggle="dropdown">
+          <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+       <a href="my-profile.html"> <button class="py-2 d-none d-md-inline-block" style="width: 180px; color: white; background-color:rgb(253, 34, 100) ;"><span class="icon-user"></span>  Mi perfil </button> </a>
+        <a href="cart.html"> <button class="py-2 d-none d-md-inline-block" style="width: 180px; color: white ; background-color: rgb(253, 34, 100);"> <span class="icon-cart"></span> Carrito</button> </a> 
+        <div class="dropdown-divider"></div>
+       <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: hsl(51, 100%, 49%)  ; color: black ;" onclick="cerrar()">Cerrar sesión</button>
+     </ul>
+    </div>
+     
+    
+      </div>
+    
+  </nav>
+  </header>
+  
+  
+  <div class="container mt-5">
+  <div class="text-center p-4">
+    <h3>Mi Perfil</h3>
+  </div>
+  <form class="needs-validation" id="form-perfil" method="post">
+ <div class="row">
+        <div class="col-md-3 mb-3">
+          <label for="zip" >Primer Nombre*</label>
+          <input type="text" style="border: 1px solid rgb(253, 34, 100)" class="form-control" id="nombre" placeholder="Primer nombre" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="state">Segundo Nombre</label>
+          <input type="text" style="border: 1px solid rgb(253, 34, 100)" class="form-control" id="segnombre" placeholder="Segundo nombre" required>
+        </div>
+ </div>
+
+ <div class="row">
+  <div class="col-md-3 mb-3">
+    <label for="zip">Primer Apellido*</label>
+    <input type="text" style="border: 1px solid rgb(253, 34, 100)" class="form-control" id="apellido" placeholder="Primer apellido" size="20" required>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="state">Segundo Apellido</label>
+    <input type="text"  style="border: 1px solid rgb(253, 34, 100)" class="form-control" id="segapellido" placeholder="Segundo apellido"  size="20" required>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-md-3 mb-3">
+  <label for="zip">E-mail*</label>
+  <input type="text" style="border: 1px solid rgb(253, 34, 100)" class="form-control" id="email" placeholder="" size="20" required>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3 mb-3">
+  <label for="zip">Teléfono de contacto*</label>
+  <input type="text" style="border: 1px solid rgb(253, 34, 100)" class="form-control" id="telefono" placeholder="Numero de telefono" size="20" required>
+</div>
+</div>
+
+<input type="submit" class="btn btn-primary btn-lg" style="border: 1px solid rgb(253, 34, 100); background-color:rgb(253, 34, 100)" onclick="guardarCambios()" value="Guardar cambios">
+</div>
+</form>
+
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+ <scipt src="http://code.jquery.com/jquery-latest.js"></scipt>
+</body>
+
+</html>

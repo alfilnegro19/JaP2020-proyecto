@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/fontsstyle.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+		<div class="menu_bar">
+      <a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+      
+		</div>
+
+  <nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    
+      <a class="py-2 d-none d-md-inline-block" href="main-page.html"><span class="icon-home3"></span>Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html"><span class="icon-price-tags"></span>Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html"><span class="icon-truck"></span>Productos</a>
+     <a  class="py-2 d-none d-md-inline-block" href="sell.html"><span class="icon-credit-card"></span>Vender</a>
+     <div class="btn-group">
+        <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: rgb(253, 34, 100); color: white;"
+                type="button" data-toggle="dropdown">
+          <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+       <a href="my-profile.html"> <button class="py-2 d-none d-md-inline-block" style="width: 180px; color: white; background-color:rgb(253, 34, 100) ;"><span class="icon-user"></span>  Mi perfil </button> </a>
+        <a href="cart.html"> <button class="py-2 d-none d-md-inline-block" style="width: 180px; color: white ; background-color: rgb(253, 34, 100);"> <span class="icon-cart"></span> Carrito</button> </a> 
+        <div class="dropdown-divider"></div>
+       <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: hsl(51, 100%, 49%)  ; color: black ;" onclick="cerrar()">Cerrar sesión</button>
+     </ul>
+    </div>
+     
+    
+      </div>
+    
+  </nav>
+  </header>
+  
+    <div class="text-center p-4">
+      <h2>Carrito</h2>
+      <h5>Prepará tu pedido:</h5>
+  </div>
+  <div class="container pb-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Foto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Moneda</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="articlesWrapper">
+          
+      </tbody>
+    </table>
+  <div id="spinner-wrapper"></div>
+    <div class="lds-ring"></div>
+      <div> 
+      <hr class="mb-4">
+      <h5 class="mb-3">Tipo de envío</h5>
+      <div class="d-block my-3">
+        <div class="custom-control custom-radio">
+          <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+          <label class="custom-control-label" for="goldradio">Premium de 2 a 5 días (15%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="premiumradio">Express de 5 a 8 días (7%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="standardradio">Standard de 12 a 15 días (5%)</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <hr>
+      <h5>Dirección de envío</h5>
+      <div style="display: flex;">
+        <div>
+          <label style="font-size: 0.9rem;" for="calle" >Dirección</label><br>
+          <input style="border: 1px solid rgb(253, 34, 100); height: 1.8rem; width: 20rem; border-radius: 0.2rem;" type="text" name="calle" required>
+        </div>
+        <div style="margin-left: 2rem;">
+         <label style="font-size: 0.9rem;" for="num">Número de puerta</label><br>
+         <input style="border: 1px solid rgb(253, 34, 100); height: 1.8rem; border-radius: 0.2rem;" type="text" name="num" required>
+        </div>
+      </div>
+    </div>
+        <div>
+        <hr>
+        <form onsubmit="finalizado()">
+              <h5 class="mb-3">Costos</h5>
+              <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Subtotal</h6>
+                      <small class="text-muted">Costo unitario del producto por cantidad</small>
+                    </div>
+                    <span class="text-muted" id="productCostText"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Costo de envío</h6>
+                      <small class="text-muted">Según el tipo de envío</small>
+                    </div>
+                    <span class="text-muted" id="comissionText"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Total ($)</span>
+                    <strong id="totalCostText">-</strong>
+                  </li>
+                </ul>
+              <hr class="mb-4">
+              <h5>Forma de pago</h5>
+              <h6 id="metodoPago" >No ha seleccionado.</h6>
+               <div class="row">
+                <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#selectmodal">Seleccionar</button>
+              </div> <br>
+              <button id="compra" style="border: 1px solid rgb(253, 34, 100); background-color:rgb(253, 34, 100)" class="btn btn-primary btn-lg" type="submit" >Finalizar compra</button>
+            </form>
+          </div>
+          
+          <div class="modal fade" tabindex="-1" role="dialog" id="selectmodal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Selecciona metodo de pago</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <div id="smart-button-container">
+                      <div style="text-align: center;">
+                        <div style="margin-bottom: 1.25rem;">
+                          <p></p>
+                          <select id="item-options"><option value="" price=""> --selecciona aquí--</option><option value="1" price=""> Paypal</option><option value="2" price=""> Tarjeta de débito o crédito</option> </select>
+                          <select style="visibility: hidden" id="quantitySelect"></select>
+                        </div>
+                      <div id="paypal-button-container"></div>
+                      </div>
+                    </div>
+                    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+                    <script>
+                      function initPayPalButton() {
+                        var shipping = 0;
+                        var itemOptions = document.querySelector("#smart-button-container #item-options");
+                    var quantity = parseInt();
+                    var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
+                    if (!isNaN(quantity)) {
+                      quantitySelect.style.visibility = "visible";
+                    }
+                    var orderDescription = '';
+                    if(orderDescription === '') {
+                      orderDescription = 'Item';
+                    }
+                    paypal.Buttons({
+                      style: {
+                        shape: 'pill',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
+                        
+                      },
+                      createOrder: function(data, actions) {
+                        var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+                        var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
+                        var tax = (0 === 0) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
+                        if(quantitySelect.options.length > 0) {
+                          quantity = parseInt(quantitySelect.options[quantitySelect.selectedIndex].value);
+                        } else {
+                          quantity = 1;
+                        }
+                
+                        tax *= quantity;
+                        tax = Math.round(tax * 100) / 100;
+                        var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
+                        priceTotal = Math.round(priceTotal * 100) / 100;
+                        var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+                
+                        return actions.order.create({
+                          purchase_units: [{
+                            description: orderDescription,
+                            amount: {
+                              currency_code: 'USD',
+                              value: priceTotal,
+                              breakdown: {
+                                item_total: {
+                                  currency_code: 'USD',
+                                  value: itemTotalValue,
+                                },
+                                shipping: {
+                                  currency_code: 'USD',
+                                  value: shipping,
+                                },
+                                tax_total: {
+                                  currency_code: 'USD',
+                                  value: tax,
+                                }
+                              }
+                            },
+                            items: [{
+                              name: selectedItemDescription,
+                              unit_amount: {
+                                currency_code: 'USD',
+                                value: selectedItemPrice,
+                              },
+                              quantity: quantity
+                            }]
+                          }]
+                        });
+                      },
+                      onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                          alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        });
+                      },
+                      onError: function(err) {
+                        console.log(err);
+                      },
+                    }).render('#paypal-button-container');
+                  }
+                  initPayPalButton();
+                    </script>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+    
+  </div>
+  
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/login.js"></script>
+  <scipt src="http://code.jquery.com/jquery-latest.js"></scipt>
+</body>
+
+</html>

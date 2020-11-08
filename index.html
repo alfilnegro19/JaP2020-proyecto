@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/fontsstyle.css" rel="stylesheet">
+  <style>
+    html, body{
+      height: 100%;
+    }
+
+    body {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
+
+    .signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body class="text-center">
+  <div class="container p-5">
+    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
+      <div>
+        <div class=container id=login>
+          <div id=loginbox>
+            <img id=logo src=img/login.png>
+              <form method="POST" name="login" action="main-page.html" class="signin" onsubmit="guardado()">
+                <label  id="l1" for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <input type="email" class="form-control" id="loginemail" placeholder="Email" required autofocus>
+                <label id="l2" for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" value="" id="password" required>        
+                <button type="submit" class="btn btn-success btn-lg btn-block" id="ingresar" style="background-color: rgb(253, 34, 100);">Ingresar</button>
+                <label>
+                  <input type="checkbox" value="remember-me"> Recuerdame 
+                </label>
+              </form>  
+          </div>  
+        </div>
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+      
+      </div>
+    </div>
+  </div>
+
+  <script src="js/init.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
